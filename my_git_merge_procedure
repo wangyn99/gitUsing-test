@@ -1,0 +1,20 @@
+１．将远程仓库origin的分支remote_branch与本地的develop合并:
+	先切换到本地分支develop;
+	然后：git merge origin/remote_branch;
+２．确认无冲突合并完毕，将合并后的本地分支develop合并到本地的主分支master:
+	（１）切换到主分支master;
+	（２）git merge develop;
+	（３）此时出现冲突：
+		<head>
+		<<<<<<< HEAD
+		  <title>welcome to master branch</title>
+		=======
+  		<title>remote branch</title>
+		>>>>>>> develop
+		</head>
+	（４）在工作区对出现的冲突进行修正，然后对修正进行提交
+		git commit -a -m 'fixed over'
+	（５）将master分支推送到 origin仓库
+	（６）出现推送错误，可能有其他的分支在这之前进行了推送，此时需要将origin拉取到本地进行合并，然后推送
+		git pull(git fetch+git merge)
+		git push origin master

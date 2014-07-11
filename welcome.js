@@ -1,6 +1,6 @@
 if (Meteor.isClient) {
   Template.hello.greeting = function () {
-    return "Welcome to welcome.";
+    return "Welcome to gitusing.";
   };
 
   Template.hello.events({
